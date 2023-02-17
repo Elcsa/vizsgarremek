@@ -20,10 +20,52 @@ public class listetterem extends Controller{
     @FXML
     private Button deleteButton;
     @FXML
-    private TableView etelTabla;
+    private TableView <etel>etelTabla;
     @FXML
-    private TableColumn id;
+    private TableColumn <etel,Integer>idCol;
     @FXML
-    private TableColumn nev;
+    private TableColumn <etel,String> nameCol;
+    @FXML
+    private TableColumn <etel,String> leirasCol;
+    @FXML
+    private TableColumn<etel,String> kategoriaCol;
+    @FXML
+    private TableColumn <etel,Integer> arCol;
+    private void initialize(){
+        idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        leirasCol.setCellValueFactory(new PropertyValueFactory<>("leiras"));
+        kategoriaCol.setCellValueFactory(new PropertyValueFactory<>("kategoria"));
+        arCol.setCellValueFactory(new PropertyValueFactory<>("ar"));
+        Platform.runLater(()->{
+            try {
+                loadKajaFromServer();
+            }catch (IOException e){
+                error("hiba tortent az adtok lekerese soran",e.getMessage());
+                Platform.exit();
+            }
+        });
+    }
+    private void loadKajaFromServer()throws IOException{
+        Response response=RequestHandeler.get(App.BASE_URL);
+        String content=response.getContent();
+        Gson converter=new Gson();
+        etel[] kaja=converter.fromJson(content,etel[].class);
+        etelTabla.getItems().clear();
+        for (etel kaja:kaja)
+    }
 
+
+
+    @FXML
+    public void insertClick(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void updateClick(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void deleteClicck(ActionEvent actionEvent) {
+    }
 }
