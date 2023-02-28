@@ -10,7 +10,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Collections;
 import java.util.Optional;
 public class listetterem extends Controller{
     @FXML
@@ -20,17 +19,17 @@ public class listetterem extends Controller{
     @FXML
     private Button deleteButton;
     @FXML
-    private TableView <etel>etelTabla;
+    private TableView <Etel>etelTabla;
     @FXML
-    private TableColumn <etel,Integer>idCol;
+    private TableColumn <Etel,Integer>idCol;
     @FXML
-    private TableColumn <etel,String> nameCol;
+    private TableColumn <Etel,String> nameCol;
     @FXML
-    private TableColumn <etel,String> leirasCol;
+    private TableColumn <Etel,String> leirasCol;
     @FXML
-    private TableColumn<etel,String> kategoriaCol;
+    private TableColumn<Etel,String> kategoriaCol;
     @FXML
-    private TableColumn <etel,Integer> arCol;
+    private TableColumn <Etel,Integer> arCol;
     private void initialize(){
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -47,25 +46,86 @@ public class listetterem extends Controller{
         });
     }
     private void loadKajaFromServer()throws IOException{
-        Response response=RequestHandeler.get(App.BASE_URL);
+        Response response=RequestHandler.get(App.BASE_URL);
         String content=response.getContent();
         Gson converter=new Gson();
-        etel[] kaja=converter.fromJson(content,etel[].class);
+        Etel[] kaja=converter.fromJson(content, Etel[].class);
         etelTabla.getItems().clear();
-        for (etel kaja:kaja)
+        for (Etel etel:kaja){
+            etelTabla.getItems().add(etel);
+
+        }
     }
 
 
 
     @FXML
     public void insertClick(ActionEvent actionEvent) {
+       try {
+           FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("createetel.fxml"));
+           Scene scene = new Scene(fxmlLoader.load(), 640, 480);
+           Stage stage = new Stage();
+           stage.setTitle("Create kaja");
+           stage.setScene(scene);
+           stage.setOnCloseRequest(event -> {
+               try {
+                   loadKajaFromServer();
+               } catch (IOException e) {
+                   error("nem sikerult kapcslodnia szerverhez");
+               }
+           });
+           stage.show();
+       }catch (IOException e){
+           error("hiba tortent az urlap betoltese  soran",e.getMessage());
+       }
     }
+
 
     @FXML
     public void updateClick(ActionEvent actionEvent) {
+        Etel selected=etelTabla.getSelectionModel().getSelectedItem();
+        if(selected==null){
+            warning("modositashoz elobb valszon ki egy elemet");
+            return;
+
+        }try {
+            FXMLLoader fxmlLoader=new FXMLLoader(App.class.getResource("hozzaadakaja.fxml"));
+            Scene scene=new Scene(fxmlLoader.load(),640,480);
+            hozzaadakaja controller=fxmlLoader.getController();
+            controller.setEtel(selected);
+            Stage stage=new Stage();
+            stage.setTitle("updata "+selected.getNev());
+            stage.setScene(scene);
+            stage.setOnHidden(even->{
+                try {
+                    loadKajaFromServer();
+                }catch (IOException e){
+                    error("nem sikerult kapcsolodni a szerverhez");
+
+                }
+            });
+            stage.show();
+        }catch (IOException e){
+            error("hiba aaz urlap betoltese soran", e.getMessage());
+        }
     }
 
     @FXML
     public void deleteClicck(ActionEvent actionEvent) {
+    Etel selected=etelTabla.getSelectionModel().getSelectedItem();
+    if (selected==null){
+        warning("torles elobb valszon ki egy elemet");
+        return;
     }
+    Optional<ButtonType>optionalButtonType=alert(Alert.AlertType.CONFIRMATION,"biztos?","biztos, hogz torlod az alabi rekordot:"+selected.getNev(),"");
+
+    if(optionalButtonType.isPresent()&&optionalButtonType.get().equals(ButtonType.OK)){
+    String url=BASE_URL+"/"+selected.getId();
+    try{
+        RequestHandler.delete(url);
+        loadKajaFromServer();
+    }catch (IOException e){
+        error("nem sikeerult kapcsolodni a szerverhez");
+    }
+    }}
 }

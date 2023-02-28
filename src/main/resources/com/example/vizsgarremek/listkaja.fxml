@@ -21,7 +21,7 @@
         <TableView fx:id="etelTabla" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
             <columns>
                 <TableColumn fx:id="idCol" minWidth="50.0" prefWidth="75.0" text="#"/>
-                <TableColumn fx:id="nameCol" minWidth="50.0" prefWidth="200.0" text="name"/>
+                <TableColumn fx:id="nevCol" minWidth="50.0" prefWidth="200.0" text="nev"/>
                 <TableColumn fx:id="leirasCol" minWidth="50.0" prefWidth="200.0" text="leiras"/>
                 <TableColumn fx:id="kategoriaCol" minWidth="50.0" prefWidth="200.0" text="kategira"/>
                 <TableColumn fx:id="arCol" minWidth="50.0" prefWidth="200.0" text="ar"/>

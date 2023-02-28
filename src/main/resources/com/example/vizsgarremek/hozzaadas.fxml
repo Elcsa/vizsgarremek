@@ -25,11 +25,14 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
     <children>
-        <Label text="Name:"/>
+        <Label text="Nev:"/>
         <Label text="leiras:" GridPane.rowIndex="1"/>
         <Label text="kategoria:" GridPane.rowIndex="2"/>
         <Label text="ar:" GridPane.rowIndex="3"/>
-        <TextField text="nameField" GridPane.rowIndex="1"/>
-        <TextField text="leirasField" GridPane.rowIndex="2" />
+        <TextField fx:id="nevField" GridPane.columnIndex="1"/>
+        <TextField fx:id="leirasField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <TextField fx:id="kategoriaField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <TextField fx:id="arField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+        <Button fx:id="updateButton" mnemonicParsing="false" onAction="#updateClick" prefWidth="10000000.0" text="update" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
     </children>
 </GridPane>

@@ -37,11 +37,11 @@ public class kajacreate extends Controller{
             warning("id megadasa kotelezo");
             return;
         }
-        etel newetel=new etel(0,nev,leiras,kategoria,ar,id,);
+        Etel newetel=new Etel(id,nev,leiras,kategoria,ar,);
         Gson converter=new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
         String json=converter.toJson(newetel);
         try{
-            Response response=RequestHandler.post(App.BASE_URl,json);
+            Response response=RequestHandler.post(App.BASE_URL,json);
             if(response.getResponseCode()==201){
                 nevField.setText("");
                 leirasField.setText("");
