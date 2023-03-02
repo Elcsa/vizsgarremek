@@ -30,12 +30,14 @@ public class listetterem extends Controller{
     private TableColumn<Etel,String> kategoriaCol;
     @FXML
     private TableColumn <Etel,Integer> arCol;
+    @FXML
     private void initialize(){
-        idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-        leirasCol.setCellValueFactory(new PropertyValueFactory<>("leiras"));
-        kategoriaCol.setCellValueFactory(new PropertyValueFactory<>("kategoria"));
-        arCol.setCellValueFactory(new PropertyValueFactory<>("ar"));
+        idCol.setCellValueFactory(new PropertyValueFactory<>("food_id"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("food_name"));
+        leirasCol.setCellValueFactory(new PropertyValueFactory<>("food_description"));
+        kategoriaCol.setCellValueFactory(new PropertyValueFactory<>("food_category"));
+        arCol.setCellValueFactory(new PropertyValueFactory<>("food_price"));
+        //`food_id`, `food_name`, `food_description`, `food_category`, `food_price`c
         Platform.runLater(()->{
             try {
                 loadKajaFromServer();
@@ -46,10 +48,11 @@ public class listetterem extends Controller{
         });
     }
     private void loadKajaFromServer()throws IOException{
-        Response response=RequestHandler.get(App.BASE_URL);
+        Response response=RequestHandler.get(App.BASE_URl);
         String content=response.getContent();
+//        content = "{\"food_id\":1,\"food_name\":\"asd\",\"food_description\":\"asd\",\"food_category\":\"sad3\",\"food_price\":3000}";
         Gson converter=new Gson();
-        Etel[] kaja=converter.fromJson(content, Etel[].class);
+        Etel[] kaja = converter.fromJson(content, Etel[].class);
         etelTabla.getItems().clear();
         for (Etel etel:kaja){
             etelTabla.getItems().add(etel);
@@ -91,10 +94,10 @@ public class listetterem extends Controller{
         }try {
             FXMLLoader fxmlLoader=new FXMLLoader(App.class.getResource("hozzaadakaja.fxml"));
             Scene scene=new Scene(fxmlLoader.load(),640,480);
-            hozzaadakaja controller=fxmlLoader.getController();
+            kajamodosit controller=fxmlLoader.getController();
             controller.setEtel(selected);
             Stage stage=new Stage();
-            stage.setTitle("updata "+selected.getNev());
+            stage.setTitle("updata "+selected.getFood_name());
             stage.setScene(scene);
             stage.setOnHidden(even->{
                 try {
@@ -117,10 +120,10 @@ public class listetterem extends Controller{
         warning("torles elobb valszon ki egy elemet");
         return;
     }
-    Optional<ButtonType>optionalButtonType=alert(Alert.AlertType.CONFIRMATION,"biztos?","biztos, hogz torlod az alabi rekordot:"+selected.getNev(),"");
+    Optional<ButtonType>optionalButtonType=alert(Alert.AlertType.CONFIRMATION,"biztos?","biztos, hogz torlod az alabi rekordot:"+selected.getFood_name(),"");
 
     if(optionalButtonType.isPresent()&&optionalButtonType.get().equals(ButtonType.OK)){
-    String url=BASE_URL+"/"+selected.getId();
+    String url=App.BASE_URl+"/"+selected.getFood_id();
     try{
         RequestHandler.delete(url);
         loadKajaFromServer();

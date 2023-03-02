@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class hozzaadakaja extends Controller{
+public class kajamodosit extends Controller{
 
 
     @FXML
@@ -20,10 +20,10 @@ public class hozzaadakaja extends Controller{
     private Etel etel;
     public void  setEtel(Etel etel){
         this.etel=etel;
-        nevField.setText(this.etel.getNev());
-        leirasField.setText(this.etel.getLeiras());
-        kategoriaField.setText(this.etel.getKategoria());
-        arField.setText(this.etel.getAr() +"");
+        nevField.setText(this.etel.getFood_name());
+        leirasField.setText(this.etel.getFood_description());
+        kategoriaField.setText(this.etel.getFood_category());
+        arField.setText(this.etel.getFood_price() +"");
 
     }
 

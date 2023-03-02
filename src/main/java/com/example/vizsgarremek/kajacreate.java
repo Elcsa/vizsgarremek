@@ -27,21 +27,21 @@ public class kajacreate extends Controller{
         String nev=nevField.getText().trim();
         String leiras=leirasField.getText().trim();
         String kategoria=kategoriaField.getText().trim();
-        String ar=arField.getText().trim();
-        String id=idField.getId();
+        int ar=Integer.parseInt(arField.getText().trim());
+        int id= Integer.parseInt(idField.getId());
         if(nev.isEmpty()){
             warning("nev megadasa kotelezo");
             return;
         }
-        if(id.isEmpty()){
-            warning("id megadasa kotelezo");
+        if(leiras.isEmpty()){
+           warning("id megadasa kotelezo");
             return;
         }
-        Etel newetel=new Etel(id,nev,leiras,kategoria,ar,);
+        Etel newetel=new Etel(id,nev,leiras,kategoria,ar);
         Gson converter=new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
         String json=converter.toJson(newetel);
         try{
-            Response response=RequestHandler.post(App.BASE_URL,json);
+            Response response=RequestHandler.post(App.BASE_URl,json);
             if(response.getResponseCode()==201){
                 nevField.setText("");
                 leirasField.setText("");

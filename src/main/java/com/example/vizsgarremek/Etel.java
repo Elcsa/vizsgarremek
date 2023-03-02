@@ -3,58 +3,58 @@ package com.example.vizsgarremek;
 import com.google.gson.annotations.Expose;
 
 public class Etel {
-    private int id;
+    private int food_id;
     @Expose
-    private String nev;
+    private String food_name;
     @Expose
-    private String leiras;
-    private String kategoria;
-    private int ar;
-    public Etel(int id,String nev,String leiras,String kategoria,int ar){
-        this.id=id;
-        this.nev= nev;
-        this.leiras=leiras;
-        this.kategoria=kategoria;
-        this.ar=ar;
+    private String food_description;
+    private String food_category;
+    private int food_price;
+    public Etel(int id, String nev, String leiras, String kategoria, int ar){
+        this.food_id = id;
+        this.food_name = nev;
+        this.food_description =leiras;
+        this.food_category =kategoria;
+        this.food_price = ar;
     }
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public int getFood_id() {
+        return food_id;
     }
 
-    public String getNev() {
-        return nev;
+    public void setFood_id(int food_id) {
+        this.food_id = food_id;
     }
 
-    public void setNev(String nev) {
-        this.nev = nev;
+    public String getFood_name() {
+        return food_name;
     }
 
-    public String getLeiras() {
-        return leiras;
+    public void setFood_name(String food_name) {
+        this.food_name = food_name;
     }
 
-    public void setLeiras(String leiras) {
-        this.leiras = leiras;
+    public String getFood_description() {
+        return food_description;
     }
 
-    public String getKategoria() {
-        return kategoria;
+    public void setFood_description(String food_description) {
+        this.food_description = food_description;
     }
 
-    public void setKategoria(String kategoria) {
-        this.kategoria = kategoria;
+    public String getFood_category() {
+        return food_category;
     }
 
-    public int getAr() {
-        return ar;
+    public void setFood_category(String food_category) {
+        this.food_category = food_category;
     }
 
-    public void setAr(int ar) {
-        this.ar = ar;
+    public int getFood_price() {
+        return food_price;
+    }
+
+    public void setFood_price(int food_price) {
+        this.food_price = food_price;
     }
 
 
