@@ -4,6 +4,6 @@ module com.example.vizsgarremek {
     requires com.google.gson;
 
 
-    opens com.example.vizsgarremek to javafx.fxml;
+    opens com.example.vizsgarremek to javafx.fxml, com.google.gson;
     exports com.example.vizsgarremek;
 }

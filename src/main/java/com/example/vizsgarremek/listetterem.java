@@ -92,8 +92,9 @@ public class listetterem extends Controller{
             return;
 
         }try {
-            FXMLLoader fxmlLoader=new FXMLLoader(App.class.getResource("hozzaadakaja.fxml"));
-            Scene scene=new Scene(fxmlLoader.load(),640,480);
+            FXMLLoader fxmlLoader=new FXMLLoader(App.class.getResource("hozzaadas.fxml"));
+            Scene scene;
+            scene = new Scene(fxmlLoader.load(),640,480);
             kajamodosit controller=fxmlLoader.getController();
             controller.setEtel(selected);
             Stage stage=new Stage();
@@ -124,6 +125,7 @@ public class listetterem extends Controller{
 
     if(optionalButtonType.isPresent()&&optionalButtonType.get().equals(ButtonType.OK)){
     String url=App.BASE_URl+"/"+selected.getFood_id();
+        System.out.println(url);
     try{
         RequestHandler.delete(url);
         loadKajaFromServer();
