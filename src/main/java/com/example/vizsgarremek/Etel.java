@@ -2,13 +2,19 @@ package com.example.vizsgarremek;
 
 import com.google.gson.annotations.Expose;
 
+import java.util.List;
+
 public class Etel {
+    @Expose
     private int food_id;
     @Expose
     private String food_name;
     @Expose
     private String food_description;
+    @Expose
     private String food_category;
+
+    @Expose
     private int food_price;
     public Etel(int id, String nev, String leiras, String kategoria, int ar){
         this.food_id = id;
@@ -59,4 +65,10 @@ public class Etel {
 
 
 
+}
+class MenuHelper {
+    private List<Etel> menu;
+    public List<Etel> getEtelList() {
+        return menu;
+    }
 }
