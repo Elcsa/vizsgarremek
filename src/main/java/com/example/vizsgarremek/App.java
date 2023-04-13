@@ -8,11 +8,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class App extends Application {
-    public static final String BASE_URl="http://localhost:8080/menu";
+    public static final String BASE_URl="http://localhost:3000/menu";
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("listkaja.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fooldal.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("kaja!");
         stage.setScene(scene);
         stage.show();

@@ -8,8 +8,8 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vizsgarremek.fooldal">
    <children>
-      <Button layoutX="120.0" layoutY="344.0" mnemonicParsing="false" style="-fx-background-color: #c222bf;" text="menu" fx:id="menu" />
-      <Button layoutX="366.0" layoutY="344.0" mnemonicParsing="false" style="-fx-background-color: #c222bf;" text="rendeles" fx:id="rendeles" />
+      <Button fx:id="menu" layoutX="120.0" layoutY="344.0" mnemonicParsing="false" onAction="#menuclick" style="-fx-background-color: #c222bf;" text="menu" />
+      <Button fx:id="rendeles" layoutX="366.0" layoutY="344.0" mnemonicParsing="false" onAction="#rendeles" style="-fx-background-color: #c222bf;" text="rendeles" />
       <ImageView disable="true" fitHeight="282.0" fitWidth="397.0" layoutX="120.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../OIP.jpg" />

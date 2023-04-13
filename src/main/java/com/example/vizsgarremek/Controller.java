@@ -10,6 +10,7 @@ public  abstract class Controller {
     protected void error(String headerText){
         error(headerText,"");
     }
+
     protected void error(String headerText,String contentText){
         alert(Alert.AlertType.ERROR,"hiba",headerText,contentText);
     }

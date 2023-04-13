@@ -13,9 +13,9 @@ public class Etel {
     private String food_description;
     @Expose
     private String food_category;
-
     @Expose
     private int food_price;
+
     public Etel(int id, String nev, String leiras, String kategoria, int ar){
         this.food_id = id;
         this.food_name = nev;
