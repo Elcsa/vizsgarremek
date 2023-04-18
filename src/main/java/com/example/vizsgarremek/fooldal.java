@@ -32,6 +32,14 @@ public class fooldal extends Controller{
 
     public void rendeles(javafx.event.ActionEvent actionEvent) {
     }
+
+    @FXML
+    public void menuclick(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void rendeles(ActionEvent actionEvent) {
+    }
     // menu gomb  kezdolaprol atvisz alistahoz
     //rendeles meg abejelentkezeshez aztan kjaa valasztashoz
 
