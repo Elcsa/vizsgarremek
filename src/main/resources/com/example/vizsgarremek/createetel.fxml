@@ -25,10 +25,10 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
     <children>
-        <Label text="nev" textFill="WHITE" />
-        <Label text="leiras" textFill="WHITE" GridPane.rowIndex="1" />
-        <Label text="kategoria" textFill="WHITE" GridPane.rowIndex="2" />
-        <Label text="ar" textFill="WHITE" GridPane.rowIndex="3" />
+        <Label text="nev" />
+        <Label text="leiras" GridPane.rowIndex="1" />
+        <Label text="kategoria" GridPane.rowIndex="2" />
+        <Label text="ar" GridPane.rowIndex="3" />
         <TextField fx:id="nevField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
         <TextField fx:id="leirasField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <TextField fx:id="kategoriaField" GridPane.columnIndex="1" GridPane.rowIndex="2" />

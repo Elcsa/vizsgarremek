@@ -35,7 +35,7 @@ public class kajamodosit extends Controller{
     String kategoria=kategoriaField.getText().trim();
     String ar=arField.getText().trim();
     if(nev.isEmpty()){
-
+        //gomb funkci kell
     }
 
     }
