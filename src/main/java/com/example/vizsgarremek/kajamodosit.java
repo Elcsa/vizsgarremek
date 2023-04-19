@@ -38,5 +38,5 @@ public class kajamodosit extends Controller{
         //gomb funkci kell
     }
 
-    }
+        }}
 
