@@ -13,6 +13,7 @@
         <ColumnConstraints halignment="RIGHT" minWidth="75.0" prefWidth="100.0" />
         <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" />
       <ColumnConstraints />
+      <ColumnConstraints />
     </columnConstraints>
     <rowConstraints>
         <RowConstraints minHeight="10.0" />
@@ -33,7 +34,6 @@
         <TextField fx:id="leirasField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <TextField fx:id="kategoriaField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
         <TextField fx:id="arField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-        <Button fx:id="updateButton" mnemonicParsing="false" onAction="#updateClick" prefWidth="10000000.0"
-                style="-fx-background-color: #c222bf;" text="update" textFill="#1b191b" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+        <Button fx:id="updateButton" defaultButton="true" mnemonicParsing="false" onAction="#updateClick" prefHeight="30.0" prefWidth="483.0" style="-fx-background-color: #c222bf;" text="update" textFill="#1b191b" GridPane.columnIndex="3" GridPane.rowIndex="3" />
     </children>
 </GridPane>

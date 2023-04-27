@@ -51,6 +51,7 @@ public class listetterem extends Controller{
     private void loadKajaFromServer()throws IOException{
         Response response=RequestHandler.get(App.BASE_URl);
         String content=response.getContent();
+        System.out.println(App.TOKEN);
 //        content = "{\"food_id\":1,\"food_name\":\"asd\",\"food_description\":\"asd\",\"food_category\":\"sad3\",\"food_price\":3000}";
         Gson converter=new Gson();
         System.out.println(content);

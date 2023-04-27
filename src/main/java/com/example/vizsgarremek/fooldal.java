@@ -25,6 +25,7 @@ public class fooldal extends Controller{
             stage.setTitle("kaja!");
             stage.setScene(scene);
             stage.show();
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
