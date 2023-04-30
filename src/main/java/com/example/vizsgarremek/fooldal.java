@@ -15,8 +15,8 @@ public class fooldal extends Controller{
     private Button menu;
     @FXML
     private Button rendeles;
-
-    public void menuclick(javafx.event.ActionEvent actionEvent) {
+    @FXML
+     public void menuclick(javafx.event.ActionEvent actionEvent) {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("listkaja.fxml"));
         Scene scene = null;
         Stage stage = new Stage();
@@ -31,16 +31,8 @@ public class fooldal extends Controller{
         }
     }
 
+    @FXML
     public void rendeles(javafx.event.ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void menuclick(ActionEvent actionEvent) {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("Login"));
-    }
-
-    @FXML
-    public void rendeles(ActionEvent actionEvent) {
     }
     // menu gomb  kezdolaprol atvisz alistahoz
     //rendeles meg abejelentkezeshez aztan kjaa valasztashoz

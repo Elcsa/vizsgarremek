@@ -32,12 +32,15 @@ public class listetterem extends Controller{
     @FXML
     private TableColumn <Etel,Integer> arCol;
     @FXML
+    private TableColumn<Etel, String> kepCol;
+    @FXML
     private void initialize(){
         idCol.setCellValueFactory(new PropertyValueFactory<>("food_id"));
         nameCol.setCellValueFactory(new PropertyValueFactory<>("food_name"));
         leirasCol.setCellValueFactory(new PropertyValueFactory<>("food_description"));
         kategoriaCol.setCellValueFactory(new PropertyValueFactory<>("food_category"));
         arCol.setCellValueFactory(new PropertyValueFactory<>("food_price"));
+        kepCol.setCellValueFactory(new PropertyValueFactory<>("food_image"));
         //`food_id`, `food_name`, `food_description`, `food_category`, `food_price`c
         Platform.runLater(()->{
             try {

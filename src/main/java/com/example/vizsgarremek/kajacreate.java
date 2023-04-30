@@ -18,7 +18,8 @@ public class kajacreate extends Controller{
     private TextField kategoriaField;
     @FXML
     private TextField arField;
-
+    @FXML
+    private TextField kepField;
 
     @FXML
     public void submitClick(ActionEvent actionEvent) {
@@ -26,6 +27,7 @@ public class kajacreate extends Controller{
         String leiras=leirasField.getText().trim();
         String kategoria=kategoriaField.getText().trim();
         int ar=Integer.parseInt(arField.getText().trim());
+        String kep = kepField.getText().trim();
         if(nev.isEmpty()){
             warning("nev megadasa kotelezo");
             return;
@@ -34,7 +36,7 @@ public class kajacreate extends Controller{
            warning("id megadasa kotelezo");
             return;
         }
-        Etel newetel=new Etel(0,nev,leiras,kategoria,ar);
+        Etel newetel=new Etel(0,nev,leiras,kategoria,ar,kep);
         Gson converter=new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
         String json=converter.toJson(newetel);
         try{
@@ -44,6 +46,7 @@ public class kajacreate extends Controller{
                 leirasField.setText("");
                 kategoriaField.setText("");
                 arField.setText("");
+                kepField.setText("");
 
             }else{
                 error("hiba az adatok felvetele soran",response.getContent());

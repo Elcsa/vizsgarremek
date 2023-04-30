@@ -11,12 +11,14 @@ public final class RequestHandler {
     public static Response get(String url) throws IOException {
         HttpURLConnection connection = setupConnection(url);
         connection.setRequestMethod("GET");
+        connection.setRequestProperty ("Authorization", "Bearer " + App.TOKEN);
         return getResponse(connection);
     }
 
     public static Response post(String url, String data) throws IOException {
         HttpURLConnection connection = setupConnection(url);
         connection.setRequestMethod("POST");
+        connection.setRequestProperty ("Authorization", "Bearer " + App.TOKEN);
         addRequestBody(connection, data);
         return getResponse(connection);
     }
@@ -24,6 +26,7 @@ public final class RequestHandler {
     public static Response put(String url, String data) throws IOException {
         HttpURLConnection connection = setupConnection(url);
         connection.setRequestMethod("PUT");
+        connection.setRequestProperty ("Authorization", "Bearer " + App.TOKEN);
         addRequestBody(connection, data);
         return getResponse(connection);
     }
@@ -31,6 +34,7 @@ public final class RequestHandler {
     public static Response delete(String url) throws IOException {
         HttpURLConnection connection = setupConnection(url);
         connection.setRequestMethod("DELETE");
+        connection.setRequestProperty ("Authorization", "Bearer " + App.TOKEN);
         return getResponse(connection);
     }
 
@@ -73,5 +77,11 @@ public final class RequestHandler {
         is.close();
         String content = builder.toString().trim();
         return new Response(responseCode, content);
+    }
+
+    public static Response update(String s, String json) {
+
+
+        return null;
     }
 }

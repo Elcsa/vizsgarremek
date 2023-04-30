@@ -16,6 +16,17 @@ public class App extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("kaja!");
         stage.setScene(scene);
+        stage.setOnCloseRequest(windowEvent -> {
+            if(App.TOKEN != "") {
+                try {
+                    Response response=RequestHandler.delete("http://localhost:3000/auth/logout");
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+
+        });
         stage.show();
     }
 

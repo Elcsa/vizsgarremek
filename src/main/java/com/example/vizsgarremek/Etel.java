@@ -15,13 +15,17 @@ public class Etel {
     private String food_category;
     @Expose
     private int food_price;
+    @Expose
+    private String food_image;
 
-    public Etel(int id, String nev, String leiras, String kategoria, int ar){
+    public Etel(int id, String nev, String leiras, String kategoria, int ar,String food_image){
         this.food_id = id;
         this.food_name = nev;
         this.food_description =leiras;
         this.food_category =kategoria;
         this.food_price = ar;
+        this.food_image = food_image;
+
     }
     public int getFood_id() {
         return food_id;
@@ -63,6 +67,13 @@ public class Etel {
         this.food_price = food_price;
     }
 
+    public String getFood_image() {
+        return food_image;
+    }
+
+    public void setFood_image(String food_image) {
+        this.food_image = food_image;
+    }
 
 
 }

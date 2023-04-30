@@ -26,6 +26,7 @@
                 <TableColumn fx:id="leirasCol" minWidth="50.0" prefWidth="184.00003051757812" style="-fx-background-color: #0000;" text="leiras" />
                 <TableColumn fx:id="kategoriaCol" minWidth="50.0" prefWidth="184.0" style="-fx-background-color: #00000;" text="kategira" />
                 <TableColumn fx:id="arCol" minWidth="50.0" prefWidth="179.2000732421875" style="-fx-background-color: #00000;" text="ar" />
+                <TableColumn fx:id="kepCol" minWidth="50.0" prefWidth="179.2000732421875" style="-fx-background-color: #00000;" text="kep" />
             </columns>
         </TableView>
     </children>

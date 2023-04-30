@@ -33,6 +33,9 @@
         <TextField fx:id="leirasField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <TextField fx:id="kategoriaField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
         <TextField fx:id="arField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-        <Button fx:id="submitButton" mnemonicParsing="false" onAction="#submitClick" prefWidth="10000.0" style="-fx-background-color: #c222bf;" text="submit" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+        <Button fx:id="submitButton" mnemonicParsing="false" onAction="#submitClick" prefWidth="10000.0" style="-fx-background-color: #c222bf;" text="submit" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+        <Label layoutX="94.0" layoutY="182.0" text="kep" GridPane.rowIndex="4" />
+        <TextField fx:id="kepField" layoutX="125.0" layoutY="178.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
     </children>
 </GridPane>
